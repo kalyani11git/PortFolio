@@ -100,27 +100,27 @@ const Portfolio = () => {
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px]">
               <h3 className="text-2xl font-semibold text-violet-300">Service Provider</h3>
               <p>Using HTML, CSS, Spring, MySQL</p>
-              <a href="https://github.com/project-link" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
+              <a href="https://github.com/kalyani11git/service_provider.git" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
             </div>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px]">
               <h3 className="text-2xl font-semibold text-violet-300">E-commerce Website</h3>
               <p>Using React, Tailwind, HTML</p>
-              <a href="https://github.com/project-link" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
+              <a href="https://github.com/kalyani11git/E-commerce_website.git" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
             </div>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px]">
-              <h3 className="text-2xl font-semibold text-violet-300">OrnaVesta</h3>
+              <h3 className="text-2xl font-semibold text-violet-300">OrnaVesta(Event Organizers Hub)</h3>
               <p>Using Spring Boot, Java, React, MongoDB</p>
-              <a href="https://github.com/project-link" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
+              <a href="https://github.com/kalyani11git/ornavista.git" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
             </div>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px]">
               <h3 className="text-2xl font-semibold text-violet-300">Music Player</h3>
               <p>Using JS, HTML, CSS</p>
-              <a href="https://github.com/project-link" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
+              <a href="https://github.com/kalyani11git/js_music_app.git" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
             </div>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px]">
-              <h3 className="text-2xl font-semibold text-violet-300">This Portfolio Website</h3>
+              <h3 className="text-2xl font-semibold text-violet-300">Portfolio Website</h3>
               <p>Using React, Tailwind, HTML</p>
-              <a href="https://github.com/project-link" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
+              <a href="https://github.com/kalyani11git/PortFolio.git" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
             </div>
           </motion.div>
         </div>
