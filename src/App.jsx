@@ -112,7 +112,8 @@ const Portfolio = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <div className=" p-6 rounded-lg shadow-lg min-w-[300px] bg-cover" style={{backgroundImage:`url(${portfolioImage})`}}>
+            <div className=" p-6 rounded-lg shadow-lg min-w-[300px] bg-cover" >
+            {/* style={{backgroundImage:`url(${portfolioImage})`}} */}
               <h3 className="text-2xl font-semibold text-violet-300">Service Provider</h3>
               {/* <img src={portfolio} alt="React" className="h-12 mx-auto" /> */}
               <p>Using HTML, CSS, Spring, MySQL</p>
