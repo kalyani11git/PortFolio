@@ -12,6 +12,8 @@ import girlLogo from './images/girl-logo.png'
 import clogo from './images/c-logo.png';
 import jslogo from './images/js-logo.png';
 import mysqlLogo from './images/mysql-logo.png';
+import portfolioImage from './images/portfolio.png';
+import Kalyani_Mali from './images/Kalyani_Mali.pdf';
 
 const Portfolio = () => {
   const [isNightMode, setIsNightMode] = useState(true);
@@ -49,7 +51,7 @@ const Portfolio = () => {
     transition={{ duration: 1 }}
   >
     <h2 className="text-6xl font-bold text-violet-500">Hello, I'm Kalyani Mali</h2>
-    <p className="mt-4 text-xl text-violet-300">A Web Developer & Full Stack Developer</p>
+    <p className="mt-4 text-xl text-violet-300">A Full Stack Developer</p>
 
     {/* Image below intro text */}
     <div className="mt-6">
@@ -67,6 +69,18 @@ const Portfolio = () => {
       <a href="mailto:kalyanimali2003@gmail.com">
         <FaEnvelope size={30} className="hover:text-red-500 transition-colors duration-200" />
       </a>
+      <div>
+      <a
+        href={Kalyani_Mali} // Path to the PDF file in the public folder
+        download="Kalyani_Mali_Resume.pdf" // Name of the file when downloaded
+      >
+        <button
+          className="font-bold py-1 px-2 rounded hover:bg-blue-600 " 
+        >
+          Resume
+        </button>
+      </a>
+    </div>
     </div>
   </motion.div>
     </section>
@@ -92,13 +106,15 @@ const Portfolio = () => {
         <div className="text-center">
           <h2 className="text-5xl font-bold text-violet-500 mb-12">My Projects</h2>
           <motion.div 
-            className="flex overflow-x-auto space-x-8"
+            className="flex overflow-auto space-x-8 scrollbar-none "
+            // style={{scrollbars: "none", msOverflowStyle: "none"}}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px]">
+            <div className=" p-6 rounded-lg shadow-lg min-w-[300px] bg-cover" style={{backgroundImage:`url(${portfolioImage})`}}>
               <h3 className="text-2xl font-semibold text-violet-300">Service Provider</h3>
+              {/* <img src={portfolio} alt="React" className="h-12 mx-auto" /> */}
               <p>Using HTML, CSS, Spring, MySQL</p>
               <a href="https://github.com/kalyani11git/service_provider.git" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
             </div>
