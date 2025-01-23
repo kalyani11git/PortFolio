@@ -44,7 +44,7 @@ const Portfolio = () => {
     e.preventDefault(); // Prevent the default form submission behavior
 
     try {
-      const response = await fetch("http://localhost:5000/contact", {
+      const response = await fetch("https://portfolio-backend-u4fg.onrender.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
