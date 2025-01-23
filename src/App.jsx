@@ -22,6 +22,48 @@ const Portfolio = () => {
     setIsNightMode(!isNightMode);
   };
 
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState(""); // To show success or error messages
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+
+    try {
+      const response = await fetch("http://localhost:5000/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" }); // Reset form
+      } else {
+        setStatus("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setStatus("An error occurred. Please try again later.");
+    }
+  };
+
   return(
     <div className={isNightMode ? 'bg-black text-white' : 'bg-white text-black'}>
       {/* Navbar */}
@@ -191,49 +233,62 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="min-h-screen flex flex-col items-center justify-center p-10 bg-gray-900 text-white">
-        <h2 className="text-5xl font-bold mb-8">Get In Touch</h2>
-        <motion.div 
-          className="w-full max-w-lg"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+      <section
+      id="contact"
+      className="min-h-screen flex flex-col items-center justify-center p-10 bg-gray-900 text-white"
+    >
+      <h2 className="text-5xl font-bold mb-8">Get In Touch</h2>
+      <motion.div
+        className="w-full max-w-lg"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col space-y-4"
         >
-          <form 
-            action="https://formspree.io/f/your-form-id" 
-            method="POST" 
-            className="flex flex-col space-y-4"
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="p-4 bg-gray-800 text-white rounded-lg"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="p-4 bg-gray-800 text-white rounded-lg"
+          />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            className="p-4 bg-gray-800 text-white rounded-lg"
+          ></textarea>
+          <button
+            type="submit"
+            className="p-4 bg-violet-500 hover:bg-violet-600 text-white rounded-lg"
           >
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Your Name" 
-              required 
-              className="p-4 bg-gray-800 text-white rounded-lg"
-            />
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Your Email" 
-              required 
-              className="p-4 bg-gray-800 text-white rounded-lg"
-            />
-            <textarea 
-              name="message" 
-              rows="5" 
-              placeholder="Your Message" 
-              required 
-              className="p-4 bg-gray-800 text-white rounded-lg"
-            ></textarea>
-            <button 
-              type="submit" 
-              className="p-4 bg-violet-500 hover:bg-violet-600 text-white rounded-lg"
-            >
-              Send Message
-            </button>
-          </form>
-        </motion.div>
-      </section>
+            Send Message
+          </button>
+        </form>
+        {status && (
+          <p className="mt-4 text-center text-sm">
+            {status}
+          </p>
+        )}
+      </motion.div>
+    </section>
 
       {/* Footer */}
       <footer className={`p-4 text-center ${isNightMode ? 'bg-gray-800' : 'bg-gray-200'} mt-4`}>
