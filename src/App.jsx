@@ -69,13 +69,13 @@ const Portfolio = () => {
       <a href="mailto:kalyanimali2003@gmail.com">
         <FaEnvelope size={30} className="hover:text-red-500 transition-colors duration-200" />
       </a>
-      <div>
+      <div className={`${isNightMode ? 'bg-white text-black' : 'bg-black text-white'}`}>
       <a
         href={Kalyani_Mali} // Path to the PDF file in the public folder
         download="Kalyani_Mali_Resume.pdf" // Name of the file when downloaded
       >
         <button
-          className="font-bold py-1 px-2 rounded hover:bg-blue-600 " 
+          className="font-bold  px-2 rounded hover:bg-blue-600" 
         >
           Resume
         </button>
@@ -112,7 +112,7 @@ const Portfolio = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <div className=" p-6 rounded-lg shadow-lg min-w-[300px] bg-cover" >
+            <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px] bg-cover" >
             {/* style={{backgroundImage:`url(${portfolioImage})`}} */}
               <h3 className="text-2xl font-semibold text-violet-300">Service Provider</h3>
               {/* <img src={portfolio} alt="React" className="h-12 mx-auto" /> */}
