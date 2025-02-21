@@ -1,8 +1,17 @@
-# React + Vite
+# 💼 Personal Portfolio Website (MERN Stack)  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **full-stack** personal portfolio website built using the **MERN stack** to showcase projects, skills, and contact information.  
 
-Currently, two official plugins are available:
+## 🚀 Features  
+- **Modern UI** with React & Tailwind CSS    
+- **Contact Form** with backend email support  
+- **Responsive & Mobile-Friendly**  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack  
+- **Frontend:** React, Tailwind CSS  
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB 
+
+## 🔗 Links  
+- **Backend Repository:** [Portfolio-backend]((https://github.com/kalyani11git/portfolio-backend.git))  
+- **Live Demo:** [Portfolio Deployment]((https://kalyanimali-portfolio.netlify.app/))  
