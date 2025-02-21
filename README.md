@@ -13,5 +13,5 @@ A **full-stack** personal portfolio website built using the **MERN stack** to sh
 - **Database:** MongoDB 
 
 ## 🔗 Links  
-- **Backend Repository:** [Portfolio-backend]((https://github.com/kalyani11git/portfolio-backend.git))  
-- **Live Demo:** [Portfolio Deployment]((https://kalyanimali-portfolio.netlify.app/))  
+- **Backend Repository:** [Portfolio-backend][(https://github.com/kalyani11git/portfolio-backend.git)] 
+- **Live Demo:** [Portfolio Deployment][(https://kalyanimali-portfolio.netlify.app/)]  
