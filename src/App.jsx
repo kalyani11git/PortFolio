@@ -1,303 +1,35 @@
-// src/App.js
+// Separate Sections – Clean, Creative, Browser & Screen Independent
 import React, { useState } from 'react';
-import { Link } from 'react-scroll';
-import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope, FaSun, FaMoon } from 'react-icons/fa';
-import reactLogo from './images/react-logo.png';  // Use appropriate paths for logos
-import tailwindLogo from './images/tailwind-logo.png';
-import springBootLogo from './images/springboot-logo.png';
-import javaLogo from './images/java-logo.png';
-import mongoDBLogo from './images/mongodb-logo.png';
-import girlLogo from './images/girl-logo.png'
-import clogo from './images/c-logo.png';
-import jslogo from './images/js-logo.png';
-import mysqlLogo from './images/mysql-logo.png';
-import portfolioImage from './images/portfolio.png';
-import Kalyani_Mali from './images/Kalyani_Mali.pdf';
+import Navbar from './components/Navbar';
+import Home from './sections/Home';
+import Projects from './sections/Projects';
+import Technologies from './sections/Technologies';
+import Contact from './sections/Contact';
+import Footer from './components/Footer';
+import Experience from './sections/Experience';
+import './App.css';
+import Education from './sections/Education';
 
-const Portfolio = () => {
-  const [isNightMode, setIsNightMode] = useState(true);
-
-  const toggleTheme = () => {
-    setIsNightMode(!isNightMode);
-  };
+const App = () => {
 
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  return (
+   <div>
+      <Navbar  />
+      <main>
+        <Home  />
+        
+    
+        <Technologies />
+        <Experience/>
+        <Projects />
+        <Education/>
 
-  const [status, setStatus] = useState(""); // To show success or error messages
-
-  // Handle input changes
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-
-    try {
-      const response = await fetch("https://portfolio-backend-u4fg.onrender.com/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" }); // Reset form
-      } else {
-        setStatus("Failed to send message. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setStatus("An error occurred. Please try again later.");
-    }
-  };
-
-  return(
-    <div className={isNightMode ? 'bg-black text-white' : 'bg-white text-black'}>
-      {/* Navbar */}
-      <header className={`fixed top-0 left-0 w-full z-10 p-4 ${isNightMode ? 'bg-gray-800' : 'bg-gray-200'}`}>
-        <nav className="container mx-auto flex justify-between items-center">
-          <h1 className="text-3xl font-bold">Kalyani Mali</h1>
-          <div className="space-x-6">
-            <Link to="home" smooth={true} className="cursor-pointer">Home</Link>
-            <Link to="about" smooth={true} className="cursor-pointer">About</Link>
-            <Link to="projects" smooth={true} className="cursor-pointer">Projects</Link>
-            <Link to="technologies" smooth={true} className="cursor-pointer">Technologies</Link>
-            <Link to="contact" smooth={true} className="cursor-pointer">Contact</Link>
-          </div>
-          <button onClick={toggleTheme} className="ml-4">
-            {isNightMode ? <FaSun size={24} /> : <FaMoon size={24} />}
-          </button>
-        </nav>
-      </header>
-
-      {/* Home Section */}
-      {/* Home Section */}
-    <section id="home" className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/path-to-background-image.jpg')" }}>
-  <motion.div 
-    className="text-center"
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-  >
-    <h2 className="text-6xl font-bold text-violet-500">Hello, I'm Kalyani Mali</h2>
-    <p className="mt-4 text-xl text-violet-300">A Full Stack Developer</p>
-
-    {/* Image below intro text */}
-    <div className="mt-6">
-      <img src={girlLogo} alt="Girl Developer" className="w-60 h-60 mx-auto rounded-full object-cover" />
-    </div>
-
-    {/* Social Links */}
-    <div className="mt-8 flex justify-center space-x-4">
-      <a href="https://github.com/kalyani11git" target="_blank" rel="noopener noreferrer">
-        <FaGithub size={30} className="hover:text-gray-400 transition-colors duration-200" />
-      </a>
-      <a href="https://linkedin.com/in/kalyani-mali-11" target="_blank" rel="noopener noreferrer">
-        <FaLinkedin size={30} className="hover:text-blue-500 transition-colors duration-200" />
-      </a>
-      <a href="mailto:kalyanimali2003@gmail.com">
-        <FaEnvelope size={30} className="hover:text-red-500 transition-colors duration-200" />
-      </a>
-      <div className={`${isNightMode ? 'bg-white text-black' : 'bg-black text-white'}`}>
-      <a
-        href={Kalyani_Mali} // Path to the PDF file in the public folder
-        download="Kalyani_Mali_Resume.pdf" // Name of the file when downloaded
-      >
-        <button
-          className="font-bold  px-2 rounded hover:bg-blue-600" 
-        >
-          Resume
-        </button>
-      </a>
-    </div>
-    </div>
-  </motion.div>
-    </section>
-
-
-      {/* About Section */}
-      <section id="about" className="min-h-screen flex items-center justify-center p-10">
-        <motion.div 
-          className="text-center max-w-4xl"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <h2 className="text-5xl font-bold text-violet-500 mb-6">About Me</h2>
-          <p className="text-xl">
-            I am a computer engineer specializing in web development and full stack development. I have experience in various technologies including HTML, CSS, JavaScript, React, Spring Boot, and more. My passion is to build responsive, efficient, and user-friendly websites.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* Projects Section with Auto Scroll */}
-      <section id="projects" className="min-h-screen p-10">
-        <div className="text-center">
-          <h2 className="text-5xl font-bold text-violet-500 mb-12">My Projects</h2>
-          <motion.div 
-            className="flex overflow-auto space-x-8 scrollbar-none "
-            // style={{scrollbars: "none", msOverflowStyle: "none"}}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px] bg-cover" >
-            {/* style={{backgroundImage:`url(${portfolioImage})`}} */}
-              <h3 className="text-2xl font-semibold text-violet-300">Service Provider</h3>
-              {/* <img src={portfolio} alt="React" className="h-12 mx-auto" /> */}
-              <p>Using HTML, CSS, Spring, MySQL</p>
-              <a href="https://github.com/kalyani11git/service_provider.git" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px]">
-              <h3 className="text-2xl font-semibold text-violet-300">E-commerce Website</h3>
-              <p>Using React, Tailwind, HTML</p>
-              <a href="https://github.com/kalyani11git/E-commerce_website.git" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px]">
-              <h3 className="text-2xl font-semibold text-violet-300">OrnaVesta(Event Organizers Hub)</h3>
-              <p>Using Spring Boot, Java, React, MongoDB</p>
-              <a href="https://github.com/kalyani11git/ornavista.git" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px]">
-              <h3 className="text-2xl font-semibold text-violet-300">Music Player</h3>
-              <p>Using JS, HTML, CSS</p>
-              <a href="https://github.com/kalyani11git/js_music_app.git" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg min-w-[300px]">
-              <h3 className="text-2xl font-semibold text-violet-300">Portfolio Website</h3>
-              <p>Using React, Tailwind, HTML</p>
-              <a href="https://github.com/kalyani11git/PortFolio.git" className="mt-4 block text-blue-500" target="_blank" rel="noopener noreferrer">View Code</a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Technologies Section with Logos */}
-      <section id="technologies" className="min-h-screen p-10 bg-violet-200">
-        <div className="text-center">
-          <h2 className="text-5xl font-bold text-black mb-12">Technologies I Use</h2>
-          <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <div className="bg-violet-500 text-white p-6 rounded-lg shadow-lg">
-              <img src={reactLogo} alt="React" className="h-12 mx-auto" />
-              <h3 className="text-2xl font-semibold mt-4">React</h3>
-            </div>
-            <div className="bg-violet-500 text-white p-6 rounded-lg shadow-lg">
-              <img src={tailwindLogo} alt="Tailwind CSS" className="h-12 mx-auto" />
-              <h3 className="text-2xl font-semibold mt-4">Tailwind CSS</h3>
-            </div>
-            <div className="bg-violet-500 text-white p-6 rounded-lg shadow-lg">
-              <img src={springBootLogo} alt="Spring Boot" className="h-12 mx-auto" />
-              <h3 className="text-2xl font-semibold mt-4">Spring Boot</h3>
-            </div>
-            <div className="bg-violet-500 text-white p-6 rounded-lg shadow-lg">
-              <img src={javaLogo} alt="Java" className="h-12 mx-auto" />
-              <h3 className="text-2xl font-semibold mt-4">Java</h3>
-            </div>
-            <div className="bg-violet-500 text-white p-6 rounded-lg shadow-lg">
-              <img src={mongoDBLogo} alt="MongoDB" className="h-12 mx-auto" />
-              <h3 className="text-2xl font-semibold mt-4">MongoDB</h3>
-            </div>
-              <div className="bg-violet-500 text-white p-6 rounded-lg shadow-lg">
-              <img src={clogo} alt="Spring Boot" className="h-12 mx-auto" />
-              <h3 className="text-2xl font-semibold mt-4">C/C++</h3>
-            </div>
-            <div className="bg-violet-500 text-white p-6 rounded-lg shadow-lg">
-              <img src={jslogo} alt="Java" className="h-12 mx-auto" />
-              <h3 className="text-2xl font-semibold mt-4">JavaScript</h3>
-            </div>
-            <div className="bg-violet-500 text-white p-6 rounded-lg shadow-lg">
-              <img src={mysqlLogo} alt="MongoDB" className="h-12 mx-auto" />
-              <h3 className="text-2xl font-semibold mt-4">MySql</h3>
-             
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section
-      id="contact"
-      className="min-h-screen flex flex-col items-center justify-center p-10 bg-gray-900 text-white"
-    >
-      <h2 className="text-5xl font-bold mb-8">Get In Touch</h2>
-      <motion.div
-        className="w-full max-w-lg"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col space-y-4"
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="p-4 bg-gray-800 text-white rounded-lg"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="p-4 bg-gray-800 text-white rounded-lg"
-          />
-          <textarea
-            name="message"
-            rows="5"
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            className="p-4 bg-gray-800 text-white rounded-lg"
-          ></textarea>
-          <button
-            type="submit"
-            className="p-4 bg-violet-500 hover:bg-violet-600 text-white rounded-lg"
-          >
-            Send Message
-          </button>
-        </form>
-        {status && (
-          <p className="mt-4 text-center text-sm">
-            {status}
-          </p>
-        )}
-      </motion.div>
-    </section>
-
-      {/* Footer */}
-      <footer className={`p-4 text-center ${isNightMode ? 'bg-gray-800' : 'bg-gray-200'} mt-4`}>
-        <p>&copy; 2024 Kalyani Mali. All rights reserved.</p>
-      </footer>
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
-}
+};
 
-
-export default Portfolio;
-
+export default App;
